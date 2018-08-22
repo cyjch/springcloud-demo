@@ -1,0 +1,51 @@
+DROP DATABASE IF EXISTS cloudDB01;
+CREATE DATABASE cloudDB01 CHARACTER SET UTF8;
+USE cloudDB01;
+create table dept(
+	deptno BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	dname VARCHAR(60),
+	db_source VARCHAR(60)
+);
+
+DROP DATABASE IF EXISTS cloudDB02;
+CREATE DATABASE cloudDB02 CHARACTER SET UTF8;
+USE cloudDB02;
+create table dept(
+	deptno BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	dname VARCHAR(60),
+	db_source VARCHAR(60)
+);
+
+DROP DATABASE IF EXISTS cloudDB03;
+CREATE DATABASE cloudDB03 CHARACTER SET UTF8;
+USE cloudDB03;
+create table dept(
+	deptno BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	dname VARCHAR(60),
+	db_source VARCHAR(60)
+);
+
+USE cloudDB01;
+insert into dept(dname,db_source) value('开发部',database());
+insert into dept(dname,db_source) value('人事部',database());
+insert into dept(dname,db_source) value('财务部',database());
+insert into dept(dname,db_source) value('市场部',database());
+insert into dept(dname,db_source) value('运维部',database());
+
+USE cloudDB02;
+insert into dept(dname,db_source) value('开发部',database());
+insert into dept(dname,db_source) value('人事部',database());
+insert into dept(dname,db_source) value('财务部',database());
+insert into dept(dname,db_source) value('市场部',database());
+insert into dept(dname,db_source) value('运维部',database());
+
+USE cloudDB03;
+insert into dept(dname,db_source) value('开发部',database());
+insert into dept(dname,db_source) value('人事部',database());
+insert into dept(dname,db_source) value('财务部',database());
+insert into dept(dname,db_source) value('市场部',database());
+insert into dept(dname,db_source) value('运维部',database());
+select * from dept;
+
+
+

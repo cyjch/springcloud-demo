@@ -1,0 +1,14 @@
+server: 
+  port: 3344 
+  
+spring:
+  application:
+    name:  springcloud-config-server #微服务名称
+  cloud:
+    config:
+      server:
+        git:
+          #https://github.com/cyjch/springcloud-config-server.git
+          uri: git@github.com:cyjch/springcloud-config-server.git   
+ 
+

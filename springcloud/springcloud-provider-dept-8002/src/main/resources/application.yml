@@ -1,0 +1,43 @@
+server:
+  port: 8002
+  
+#整合mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.cyjch.springcloud.entity        # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+
+#整合spring    
+spring:
+   application:
+    name: springcloud-provider-dept                         # 微服务的显示的名字(很重要)，多个服务时也用相同名称                                                                                                                             
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://192.168.0.191:3306/cloudDB02              # 数据库名称
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+      
+#注册发现
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+       #单机配置:注册进eureka
+       #defaultZone: http://localhost:7001/eureka #入住eureka服务的地址 
+       #集群配置:注册进eureka
+       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/      
+  instance:
+    instance-id: springcloud-provider-dept-8002  #这里是Eureka中的 Status显示的名称
+    prefer-ip-address: true                      #访问路径可以显示IP地址     
+ 
+info: 
+  app.name: springcloud-provider-dept-8002
+  company.name: www.cyjch.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
